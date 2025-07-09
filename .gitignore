@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+*.egg-info/
+.env
+.env.*
+
+# Virtualenv
+venv/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+
+# Testing
+htmlcov/
+.coverage
+.cache/
+.tox/
+pytest_cache/
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml
+*.pid
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Mypy / Lint / Build
+.mypy_cache/
+.pytest_cache/
+build/
+dist/
+*.egg
+*.whl
+
+# Others
+*.sqlite3
+logs/
