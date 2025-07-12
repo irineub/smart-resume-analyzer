@@ -99,7 +99,7 @@ Abra http://localhost:3000/api/v1/docs no navegador para ver a documentação Sw
 **Input exemplo:**
 ![Input exemplo para Análise de Currículo](https://raw.githubusercontent.com/irineub/smart-resume-analyzer/refs/heads/main/docs/assets/swagger-input.png)
 
-## 📄 Exemplo de Resposta do sistema ia Com Relatorio Detalhado
+## 📄 Exemplo de Resposta do sistema IA com Relatorio detalhado e completo para o recrutador.
 
 ```json
 {
