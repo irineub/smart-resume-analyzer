@@ -19,7 +19,16 @@ Sistema inteligente de análise de currículos que combina OCR avançado com Ope
 - **LLM**: OpenAI GPT-4
 - **Database**: DynamoDB
 - **Deploy**: Docker + Docker Compose
+- 
+## 🏗️ Visão Geral da Arquitetura
 
+O projeto foi desenvolvido seguindo os princípios da **Clean Architecture** (Arquitetura Limpa), combinada com conceitos de **Domain-Driven Design (DDD)**. Esta escolha garante:
+
+- **Independência de frameworks**: A lógica de negócio não depende de tecnologias externas
+- **Testabilidade**: Cada camada pode ser testada isoladamente (E foram desenvolvidos testes unitarios, descritos na seção TESTES, desse README)
+- **Manutenibilidade**: Mudanças em uma camada não afetam outras
+- **Escalabilidade**: Fácil adição de novos recursos
+- 
 ## 📋 Requisitos
 
 - Python 3.13+
