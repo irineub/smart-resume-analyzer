@@ -3,7 +3,7 @@ from typing import List
 from app.config import settings
 
 def validate_files(files: List[UploadFile]):
-    """Valida arquivos enviados pelo Fabio"""
+    """Valida arquivos enviados"""
     if not files:
         raise HTTPException(status_code=400, detail="Nenhum arquivo enviado")
     

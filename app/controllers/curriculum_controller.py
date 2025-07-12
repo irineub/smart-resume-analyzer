@@ -28,7 +28,7 @@ class CurriculumController:
         request_id: str, 
         user_id: str
     ):
-        """Controla o fluxo de análise de currículos para o Fabio"""
+        """Controla o fluxo de análise de currículos"""
         
         start_time = time.time()
         

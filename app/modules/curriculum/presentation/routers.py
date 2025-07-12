@@ -47,7 +47,7 @@ async def analyze_curriculum(
       -F "files=@cv2.jpg" \
       -F "query=Qual candidato tem mais experiência em Python?" \
       -F "request_id=123e4567-e89b-12d3-a456-426614174000" \
-      -F "user_id=fabio@techmatch.com"
+      -F "user_id=irineutech2025@gmail.com"
     ```
     
     **Sem query (resumo automático):**
@@ -56,7 +56,7 @@ async def analyze_curriculum(
       -F "files=@cv1.pdf" \
       -F "files=@cv2.jpg" \
       -F "request_id=123e4567-e89b-12d3-a456-426614174000" \
-      -F "user_id=fabio@techmatch.com"
+      -F "user_id=irineutech2025@gmail.com"
     ```
     """
     try:
