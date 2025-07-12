@@ -23,7 +23,7 @@ async def analyze_curriculum(
     
     **Com query específica:**
     ```
-    curl -X POST "http://localhost:8000/api/v1/curriculum/" \
+    curl -X POST "http://localhost:3000/api/v1/curriculum/" \
       -F "files=@cv1.pdf" \
       -F "files=@cv2.jpg" \
       -F "query=Qual candidato tem mais experiência em Python?" \
@@ -33,7 +33,7 @@ async def analyze_curriculum(
     
     **Sem query (resumo automático):**
     ```
-    curl -X POST "http://localhost:8000/api/v1/curriculum/" \
+    curl -X POST "http://localhost:3000/api/v1/curriculum/" \
       -F "files=@cv1.pdf" \
       -F "files=@cv2.jpg" \
       -F "request_id=123e4567-e89b-12d3-a456-426614174000" \

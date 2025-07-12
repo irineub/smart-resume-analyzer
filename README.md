@@ -1,7 +1,7 @@
 # Smart Resume Analyzer - Assistente de Recrutamento
 
 🎯 **O que é?**
-Sistema inteligente de análise de currículos que combina OCR avançado com OpenAI para automatizar o processo de recrutamento do Fabio na TechMatch.
+Sistema inteligente de análise de currículos que combina OCR avançado com OpenAI para automatizar o processo de recrutamento.
 
 ## ✨ Features Principais
 
@@ -22,26 +22,55 @@ Sistema inteligente de análise de currículos que combina OCR avançado com Ope
 
 ## 📋 Requisitos
 
-- Python 3.11+
+- Python 3.13+
 - Docker e Docker Compose
 - Chave da API OpenAI
 
 ## 🛠️ Instalação e Configuração
 
-### 1. Clone o repositório
+### Opção 1: Instalação Simples (Recomendado)
+
+Para uso rápido e produção:
+
 ```bash
+# 1. Clone o repositório
 git clone <repository-url>
 cd smart-resume-analyzer
-```
 
-### 2. Configure as variáveis de ambiente
-```bash
-# Renomeie o arquivo de exemplo
+# 2. Configure as variáveis de ambiente
 cp .env.example .env
-
 # Edite o arquivo .env com suas configurações
 nano .env
+
+# 3. Execute com Docker (tudo incluído)
+docker-compose up --build
 ```
+
+### Opção 2: Instalação para Desenvolvedores
+
+Para desenvolvimento e debugging:
+
+```bash
+# 1. Clone o repositório
+git clone <repository-url>
+cd smart-resume-analyzer
+
+# 2. Configure as variáveis de ambiente
+cp .env.example .env
+# Edite o arquivo .env com suas configurações
+nano .env
+
+# 3. Execute apenas o DynamoDB
+docker-compose up dynamodb
+
+# 4. Instale as dependências Python
+pip install -r requirements.txt
+
+# 5. Execute o servidor Python
+python main.py
+```
+
+## 🔧 Configuração das Variáveis de Ambiente
 
 **Configurações obrigatórias:**
 ```env
@@ -53,36 +82,58 @@ LLM_MODEL=gpt-4o-mini
 OCR_PROVIDER=tesseract
 ```
 
-### 3. Execute com Docker (Recomendado)
-```bash
-# Construir e executar a aplicação
-docker-compose up --build
-```
-
 ## 📖 Como Usar
 
 ### Acesse a documentação
-Abra http://localhost:8000/api/v1/docs no navegador para ver a documentação Swagger interativa.
+Abra http://localhost:3000/api/v1/docs no navegador para ver a documentação Swagger interativa.
+
+![Tela Inicial Swagger](https://raw.githubusercontent.com/irineub/smart-resume-analyzer/refs/heads/main/docs/assets/swagger-initial.png)
+
+### Endpoints Disponíveis
+
+#### 1. Análise de Currículo
+**POST** `/api/v1/curriculum/`
+
+![Descrição Rota Análise de Currículo](https://raw.githubusercontent.com/irineub/smart-resume-analyzer/refs/heads/main/docs/assets/swagger-post.png)
+
+**Input exemplo:**
+![Input exemplo para Análise de Currículo](https://raw.githubusercontent.com/irineub/smart-resume-analyzer/refs/heads/main/docs/assets/swagger-input.png)
+
+#### 2. Histórico de Logs
+**GET** `/api/v1/logs/{user_id}`
+
+Retorna o histórico de logs para um usuário específico (dados do DynamoDB).
+
+**Input:**
+![Input Histórico de Logs](https://raw.githubusercontent.com/irineub/smart-resume-analyzer/refs/heads/main/docs/assets/swagger-log-history.png)
+
+**Response:**
+![Response Histórico de Logs](https://raw.githubusercontent.com/irineub/smart-resume-analyzer/refs/heads/main/docs/assets/swagger-log-history2.png)
 
 ### Exemplos de Uso
 
 #### 1. Análise com Query Específica
 ```bash
-curl -X POST "http://localhost:8000/api/v1/curriculum/" \
+curl -X POST "http://localhost:3000/api/v1/curriculum/" \
   -F "files=@cv1.pdf" \
   -F "files=@cv2.jpg" \
-  -F "query=Qual candidato tem mais experiência em Python e Django?" \
+  -F "query=Qual candidato tem mais experiência em Python e AI?" \
   -F "request_id=123e4567-e89b-12d3-a456-426614174000" \
   -F "user_id=irineutech2025@gmail.com"
 ```
 
 #### 2. Resumo Automático (sem query)
 ```bash
-curl -X POST "http://localhost:8000/api/v1/curriculum/" \
+curl -X POST "http://localhost:3000/api/v1/curriculum/" \
   -F "files=@cv1.pdf" \
   -F "files=@cv2.jpg" \
   -F "request_id=123e4567-e89b-12d3-a456-426614174000" \
   -F "user_id=irineutech2025@gmail.com"
+```
+
+#### 3. Consultar Histórico de Logs
+```bash
+curl -X GET "http://localhost:3000/api/v1/curriculum/history/irineutech2025@gmail.com"
 ```
 
 ## 🔧 Configurações Avançadas
@@ -120,6 +171,8 @@ pytest tests/ -v
 - ✅ **Services**: 95% (OCR, LLM, Log)
 - ✅ **Repositories**: 90% (DynamoDB)
 - ✅ **API**: 85% (endpoints)
+
+## 💡 Casos de Uso
 
 ### 1. Análise de Candidatos para Vaga Específica
 ```

@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Optional, Dict, Any
 
 class AnalysisLog(BaseModel):
-    """Modelo para log de análise no MongoDB"""
+    """Modelo para log de análise no DynamoDB"""
     request_id: str
     user_id: str
     timestamp: datetime = datetime.utcnow()
