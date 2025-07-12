@@ -19,8 +19,8 @@ class Settings(BaseSettings):
     ocr_languages: str = "pt,en"
     
     # LLM
-    llm_provider: str = "huggingface"
-    llm_model: str = "huggingface/summarization"
+    llm_provider: str = "openai"
+    llm_model: str = "gpt-4o-mini"
     
     # Security
     max_file_size: int = 10 * 1024 * 1024  # 10MB

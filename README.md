@@ -37,7 +37,7 @@ cd smart-resume-analyzer
 ### 2. Configure as variáveis de ambiente
 ```bash
 # Renomeie o arquivo de exemplo
-cp env.txt .env
+cp .env.example .env
 
 # Edite o arquivo .env com suas configurações
 nano .env
@@ -55,20 +55,8 @@ OCR_PROVIDER=tesseract
 
 ### 3. Execute com Docker (Recomendado)
 ```bash
-# Iniciar DynamoDB local
-docker run -d -p 8001:8000 --name dynamodb-local amazon/dynamodb-local
-
 # Construir e executar a aplicação
 docker-compose up --build
-```
-
-### 4. Ou execute localmente
-```bash
-# Instalar dependências
-pip install -r requirements.txt
-
-# Executar aplicação
-uvicorn app.app:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ## 📖 Como Usar
@@ -85,7 +73,7 @@ curl -X POST "http://localhost:8000/api/v1/curriculum/" \
   -F "files=@cv2.jpg" \
   -F "query=Qual candidato tem mais experiência em Python e Django?" \
   -F "request_id=123e4567-e89b-12d3-a456-426614174000" \
-  -F "user_id=fabio@techmatch.com"
+  -F "user_id=irineutech2025@gmail.com"
 ```
 
 #### 2. Resumo Automático (sem query)
@@ -94,7 +82,7 @@ curl -X POST "http://localhost:8000/api/v1/curriculum/" \
   -F "files=@cv1.pdf" \
   -F "files=@cv2.jpg" \
   -F "request_id=123e4567-e89b-12d3-a456-426614174000" \
-  -F "user_id=fabio@techmatch.com"
+  -F "user_id=irineutech2025@gmail.com"
 ```
 
 ## 🔧 Configurações Avançadas
@@ -124,18 +112,7 @@ O sistema registra automaticamente:
 
 ### Executar Testes
 ```bash
-# Executar todos os testes
-./run_tests.sh
-
-# Executar testes específicos
-./run_tests.sh unit          # Testes unitários
-./run_tests.sh integration   # Testes de integração
-./run_tests.sh performance   # Testes de performance
-./run_tests.sh coverage      # Testes com cobertura
-
-# Ou usar pytest diretamente
 pytest tests/ -v
-pytest tests/ --cov=app --cov-report=html
 ```
 
 ### Cobertura de Testes
@@ -143,33 +120,6 @@ pytest tests/ --cov=app --cov-report=html
 - ✅ **Services**: 95% (OCR, LLM, Log)
 - ✅ **Repositories**: 90% (DynamoDB)
 - ✅ **API**: 85% (endpoints)
-- ✅ **Performance**: 100% (métricas)
-
-### Tipos de Testes
-- **Unitários**: Componentes isolados
-- **Integração**: Endpoints da API
-- **Performance**: Tempo de resposta e carga
-- **Repositórios**: Operações de banco de dados
-- **Serviços**: OCR, LLM, Log
-
-## 🐛 Troubleshooting
-
-### Problema: "OpenAI API key não configurada"
-**Solução**: Configure a variável `OPENAI_API_KEY` no arquivo `.env`
-
-### Problema: "Erro ao processar arquivo"
-**Solução**: Verifique se o arquivo é PDF, JPG ou PNG válido
-
-### Problema: "DynamoDB não disponível"
-**Solução**: Execute `docker start dynamodb-local` ou verifique a porta 8001
-
-### Problema: "Testes falhando"
-**Solução**: 
-1. Instale dependências: `pip install pytest pytest-asyncio pytest-cov httpx`
-2. Execute: `pytest tests/ -v`
-3. Verifique logs: `pytest tests/ --log-cli-level=DEBUG`
-
-## 🎯 Casos de Uso do Fabio
 
 ### 1. Análise de Candidatos para Vaga Específica
 ```
@@ -203,4 +153,4 @@ Sem query: Retorna resumo individual de cada currículo
 
 ---
 
-**Desenvolvido para otimizar o tempo do Fabio e automatizar processos de recrutamento na TechMatch! 🚀**
+**Desenvolvido para otimizar o tempo e automatizar processos de recrutamento  🚀**
