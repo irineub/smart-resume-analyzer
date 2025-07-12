@@ -7,7 +7,7 @@ router = APIRouter(prefix="/api/v1")
 @router.post("/curriculum/")
 async def analyze_curriculum(
     files: List[UploadFile] = File(..., description="Arquivos PDF, JPG ou PNG"),
-    query: Optional[str] = Form(None, description="Query opcional para análise específica"),
+    query: Optional[str] = Form(None, description="Pergunta opcional para análise específica"),
     request_id: str = Form(..., description="ID único da requisição"),
     user_id: str = Form(..., description="ID do usuário solicitante")
 ):

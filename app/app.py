@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from datetime import datetime
 from app.core.config import settings
 from app.modules.curriculum.presentation.routers import router as curriculum_router
+from app.modules.curriculum.presentation.routers import misc 
 from app.core.database import dynamodb_client
 
 def create_app() -> FastAPI:
@@ -11,11 +12,20 @@ def create_app() -> FastAPI:
     
     app = FastAPI(
         title=settings.app_name,
-        description="AI-powered tool that extracts and summarizes resumes using OCR and LLMs",
+        description="Ferramenta com IA que extrai, resume e responde perguntas sobre currículos usando OCR e LLMs",
         version=settings.app_version,
         docs_url="/api/v1/docs",
         redoc_url="/api/v1/redoc",
-        openapi_url="/api/v1/openapi.json"
+        openapi_url="/api/v1/openapi.json",
+        contact={
+            "name": "Irineu Brito",
+            "url": "https://github.com/irineub",
+            "email": ""
+        },
+        license_info={
+            "name": "Mais informações sobre o desenvolvedor (Linkedin)",
+            "url": "https://linkedin.com/in/irineu-brito"
+        }
     )
     
     app.add_middleware(
@@ -26,7 +36,8 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
     
-    app.include_router(curriculum_router, tags=["curriculum"])
+    app.include_router(curriculum_router, tags=["Curriculo"])
+    app.include_router(misc, tags=["Misc"])
     
     @app.on_event("startup")
     async def startup_event():
@@ -37,7 +48,7 @@ def create_app() -> FastAPI:
         except Exception as e:
             print(f"⚠️ Aviso: Não foi possível inicializar o database: {e}")
     
-    @app.get("/")
+    @app.get("/", include_in_schema=False)
     async def root():
         """Root endpoint"""
         return {

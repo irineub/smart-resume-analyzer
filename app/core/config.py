@@ -4,7 +4,7 @@ import os
 
 class Settings(BaseSettings):
     # App
-    app_name: str = "Curriculum Vitae Query Assistant"
+    app_name: str = "Smart Resume Analyzer"
     app_version: str = "1.0.0"
     debug: bool = True
     
