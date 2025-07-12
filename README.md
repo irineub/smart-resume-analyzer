@@ -99,6 +99,69 @@ Abra http://localhost:3000/api/v1/docs no navegador para ver a documentação Sw
 **Input exemplo:**
 ![Input exemplo para Análise de Currículo](https://raw.githubusercontent.com/irineub/smart-resume-analyzer/refs/heads/main/docs/assets/swagger-input.png)
 
+## 📄 Exemplo de Resposta do sistema ia Com Relatorio Detalhado
+
+```json
+{
+  "code": 200,
+  "status": "success",
+  "request_id": "d322a30d-fbca-4892-a783-0b80ca277470",
+  "user_id": "irineutech2025@gmail.com",
+  "files_processed": 1,
+  "processing_time_seconds": 6.020391464233398,
+  "result": {
+    "type": "query_analysis",
+    "query": "Qual desses Candidatos é o melhor para a vaga de desenvolvedor backend ia",
+    "analysis": {
+      "query": "Qual desses Candidatos é o melhor para a vaga de desenvolvedor backend ia",
+      "best_candidates": [
+        {
+          "name": "Irineu Brito",
+          "filename": "cv-irineu-brito.pdf",
+          "skills": [
+            "Python",
+            "Node.js",
+            "NestJS",
+            "JavaScript",
+            "TypeScript",
+            "PostgreSQL",
+            "MongoDB",
+            "MySQL",
+            "Firebase Firestore",
+            "RESTful APIs",
+            "WebSockets"
+          ],
+          "experience_years": 3,
+          "relevant_experience": "Desenvolvimento de aplicações web escaláveis utilizando Python e Node.js, com forte experiência em Inteligência Artificial, processamento de linguagem natural e arquiteturas de backend.",
+          "strengths": [
+            "Experiência em desenvolver soluções inovadoras com IA",
+            "Conhecimento sólido em bancos de dados e DevOps",
+            "Habilidade em trabalhar em equipes ágeis e ambientes multiculturais"
+          ],
+          "weaknesses": [],
+          "match_score": 95
+        }
+      ],
+      "total_candidates_analyzed": 1,
+      "summary": "O candidato Irineu Brito possui mais de 3 anos de experiência em desenvolvimento backend, especialmente com Python, e está envolvido em projetos utilizando Inteligência Artificial, o que é altamente relevante para a vaga.",
+      "recommendations": [
+        "Considerar a experiência de Irineu em inteligência artificial e suas habilidades de backend.",
+        "Avaliar a capacidade de Irineu em trabalhar em ambientes colaborativos e multiculturais."
+      ],
+      "next_steps": [
+        "Agendar uma entrevista com Irineu Brito para discutir sua experiência e fit cultural.",
+        "Sondar mais sobre suas experiências específicas em projetos de IA durante a entrevista."
+      ]
+    },
+    "files_analyzed": [
+      "cv-irineu-brito.pdf"
+    ]
+  },
+  "message": "Análise concluída com sucesso!"
+}
+```
+
+
 #### 2. Histórico de Logs
 **GET** `/api/v1/logs/{user_id}`
 
