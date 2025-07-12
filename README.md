@@ -210,7 +210,7 @@ curl -X GET "http://localhost:3000/api/v1/curriculum/history/irineutech2025@gmai
 
 ## 🔧 Configurações Avançadas
 
-### Modelos OpenAI Disponíveis
+### Modelos OpenAI
 - `gpt-4o-mini` (recomendado - rápido e econômico)
 - `gpt-4o` (mais preciso, mas mais caro)
 - `gpt-3.5-turbo` (alternativa econômica)
