@@ -1,4 +1,34 @@
+# FastAPI e servidor
 fastapi
-uvicorn[standard]
+uvicorn
+python-multipart
+
+# Pydantic e configurações
 pydantic
+pydantic-settings
+python-dotenv
+
+# OCR - Tesseract
+PyMuPDF
+Pillow
+pytesseract
+
+# DynamoDB
+boto3
+aioboto3
+
+# LLM - OpenAI com Instructor
+openai
+instructor
+transformers
+torch
+accelerate
+
+# Testes
 pytest
+pytest-asyncio
+pytest-cov
+httpx
+
+# Utilitários
+typing-extensions==4.14.1
